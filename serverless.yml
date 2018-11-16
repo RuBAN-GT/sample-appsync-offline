@@ -1,0 +1,43 @@
+service: appsync-component
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  graphql:
+    handler: handler.graphql
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-appsync-offline
+  - serverless-dynamodb-local
+  - serverless-offline
+
+custom:
+  appsync-emulator:
+    buildPrefix: '.build'
+  appsync-offline:
+    port: 62222
+    dynamodb:
+      client:
+        endpoint: 'http://localhost:8000'
+        region: localhost
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true
+  appSync:
+    authenticationType: NONE
+    dataSources:
+      - type: AWS_LAMBDA
+        name: Lambda
+        description: 'Lambda GraphQL Resolver'
+        config:
+          functionName: graphql
+    mappingTemplates:
+      - dataSource: Lambda
+        type: Query
+        field: sample
+        request: "sample.request.vtl"
+        response: "sample.response.vtl"

@@ -1,0 +1,16 @@
+# Package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Editors
+.idea
+.vscode
+
+# Project
+.build
+.dynamodb
+.webpack
+tmp

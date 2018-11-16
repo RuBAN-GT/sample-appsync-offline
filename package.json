@@ -1,0 +1,24 @@
+{
+  "name": "appsync-component",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "SLS_DEBUG=* sls dynamodb install && sls offline start"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.15",
+    "@types/node": "^10.12.7",
+    "aws-sdk": "^2.355.0",
+    "prettier": "^1.15.2",
+    "serverless-appsync-offline": "git+https://github.com/aheissenberger/serverless-appsync-offline.git",
+    "serverless-appsync-plugin": "^1.0.8",
+    "serverless-dynamodb-local": "^0.2.35",
+    "serverless-offline": "^3.31.3",
+    "serverless-plugin-typescript": "^1.1.5",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.1.6"
+  }
+}
